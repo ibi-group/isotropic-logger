@@ -6,14 +6,14 @@
     ],
     "dependencies": {
         "bunyan": "~1.8.15",
-        "isotropic-duration-to-string": "~0.1.0",
+        "isotropic-duration-to-string": "~0.2.0",
         "moment-timezone": "~0.5.33"
     },
     "description": "Bunyan logger instance",
     "devDependencies": {
-        "isotropic-dev-dependencies": "0.0.0",
-        "isotropic-error": "~0.11.0",
-        "isotropic-later": "~0.11.0",
+        "isotropic-dev-dependencies": "~0.1.0",
+        "isotropic-error": "~0.12.0",
+        "isotropic-later": "~0.12.0",
         "test-console": "~1.1.0"
     },
     "engines": {
@@ -42,5 +42,5 @@
         "pretest": "npm run lint",
         "test": "cross-env BABEL_ENV=test nyc --nycrc-path ./node_modules/isotropic-dev-dependencies/config/nyc.json mocha"
     },
-    "version": "0.1.0"
+    "version": "0.2.0"
 }
