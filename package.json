@@ -3,14 +3,14 @@
     "bugs": "https://github.com/ibi-group/isotropic-logger/issues",
     "dependencies": {
         "bunyan": "~1.8.15",
-        "isotropic-duration-to-string": "~0.2.0",
+        "isotropic-duration-to-string": "~0.3.0",
         "moment-timezone": "~0.5.45"
     },
     "description": "Bunyan logger instance",
     "devDependencies": {
-        "isotropic-dev-dependencies": "~0.1.0",
-        "isotropic-error": "~0.12.0",
-        "isotropic-later": "~0.12.0",
+        "isotropic-dev-dependencies": "~0.3.0",
+        "isotropic-error": "~0.13.0",
+        "isotropic-later": "~0.13.0",
         "test-console": "~2.0.0"
     },
     "engines": {
@@ -39,5 +39,5 @@
         "test": "cross-env BABEL_ENV=test c8 -c ./node_modules/isotropic-dev-dependencies/config/c8.json mocha --import=isotropic-dev-dependencies/lib/register-babel-loader.js"
     },
     "type": "module",
-    "version": "0.2.0"
+    "version": "0.3.0"
 }
