@@ -4,8 +4,8 @@ import _Error from 'isotropic-error';
 import _later from 'isotropic-later';
 import _logger from '../js/logger.js';
 import _mocha from 'isotropic-dev-dependencies/lib/mocha.js';
-import _os from 'os';
-import _process from 'process';
+import _os from 'node:os';
+import _process from 'node:process';
 import _testConsole from 'test-console';
 
 const _hostname = _os.hostname();
@@ -29,7 +29,7 @@ _mocha.describe('logger', () => {
         _chai.expect(output.length).to.equal(4);
 
         {
-            const record = JSON.parse(output[0].match(/^(.*?)\n$/u)[1]);
+            const record = JSON.parse(output[0].match(/^(.*)\n$/v)[1]);
 
             _chai.expect(record).to.be.an('object');
             _chai.expect(record.hostname).to.equal(_hostname);
@@ -44,7 +44,7 @@ _mocha.describe('logger', () => {
         }
 
         {
-            const record = JSON.parse(output[1].match(/^(.*?)\n$/u)[1]);
+            const record = JSON.parse(output[1].match(/^(.*)\n$/v)[1]);
 
             _chai.expect(record).to.be.an('object');
             _chai.expect(record.hostname).to.equal(_hostname);
@@ -59,7 +59,7 @@ _mocha.describe('logger', () => {
         }
 
         {
-            const record = JSON.parse(output[2].match(/^(.*?)\n$/u)[1]);
+            const record = JSON.parse(output[2].match(/^(.*)\n$/v)[1]);
 
             _chai.expect(record).to.be.an('object');
             _chai.expect(record.hostname).to.equal(_hostname);
@@ -74,7 +74,7 @@ _mocha.describe('logger', () => {
         }
 
         {
-            const record = JSON.parse(output[3].match(/^(.*?)\n$/u)[1]);
+            const record = JSON.parse(output[3].match(/^(.*)\n$/v)[1]);
 
             _chai.expect(record).to.be.an('object');
             _chai.expect(record.hostname).to.equal(_hostname);
@@ -111,7 +111,7 @@ _mocha.describe('logger', () => {
         _chai.expect(output.length).to.equal(4);
 
         {
-            const record = JSON.parse(output[0].match(/^(.*?)\n$/u)[1]);
+            const record = JSON.parse(output[0].match(/^(.*)\n$/v)[1]);
 
             _chai.expect(record).to.be.an('object');
             _chai.expect(record.a).to.equal('a');
@@ -127,7 +127,7 @@ _mocha.describe('logger', () => {
         }
 
         {
-            const record = JSON.parse(output[1].match(/^(.*?)\n$/u)[1]);
+            const record = JSON.parse(output[1].match(/^(.*)\n$/v)[1]);
 
             _chai.expect(record).to.be.an('object');
             _chai.expect(record.b).to.equal('b');
@@ -143,7 +143,7 @@ _mocha.describe('logger', () => {
         }
 
         {
-            const record = JSON.parse(output[2].match(/^(.*?)\n$/u)[1]);
+            const record = JSON.parse(output[2].match(/^(.*)\n$/v)[1]);
 
             _chai.expect(record).to.be.an('object');
             _chai.expect(record.c).to.equal('c');
@@ -159,7 +159,7 @@ _mocha.describe('logger', () => {
         }
 
         {
-            const record = JSON.parse(output[3].match(/^(.*?)\n$/u)[1]);
+            const record = JSON.parse(output[3].match(/^(.*)\n$/v)[1]);
 
             _chai.expect(record).to.be.an('object');
             _chai.expect(record.d).to.equal('d');
@@ -190,7 +190,7 @@ _mocha.describe('logger', () => {
         _chai.expect(output.length).to.equal(1);
 
         {
-            const record = JSON.parse(output[0].match(/^(.*?)\n$/u)[1]);
+            const record = JSON.parse(output[0].match(/^(.*)\n$/v)[1]);
 
             _chai.expect(record).to.be.an('object');
             _chai.expect(record.error).to.be.an('object');
@@ -226,7 +226,7 @@ _mocha.describe('logger', () => {
         _chai.expect(output.length).to.equal(2);
 
         {
-            const record = JSON.parse(output[0].match(/^(.*?)\n$/u)[1]);
+            const record = JSON.parse(output[0].match(/^(.*)\n$/v)[1]);
 
             _chai.expect(record).to.be.an('object');
             _chai.expect(record.error).to.equal('This isn\'t as error object');
@@ -242,7 +242,7 @@ _mocha.describe('logger', () => {
         }
 
         {
-            const record = JSON.parse(output[1].match(/^(.*?)\n$/u)[1]);
+            const record = JSON.parse(output[1].match(/^(.*)\n$/v)[1]);
 
             _chai.expect(record).to.be.an('object');
             _chai.expect(record.error).to.be.an('object');
@@ -282,7 +282,7 @@ _mocha.describe('logger.task', function () {
             _chai.expect(log.output.length).to.equal(1);
 
             {
-                const record = JSON.parse(log.output[0].match(/^(.*?)\n$/u)[1]);
+                const record = JSON.parse(log.output[0].match(/^(.*)\n$/v)[1]);
 
                 _chai.expect(record).to.be.an('object');
                 _chai.expect(record.duration).to.be.a('number');
@@ -318,7 +318,7 @@ _mocha.describe('logger.task', function () {
             _chai.expect(log.output.length).to.equal(2);
 
             {
-                const record = JSON.parse(log.output[0].match(/^(.*?)\n$/u)[1]);
+                const record = JSON.parse(log.output[0].match(/^(.*)\n$/v)[1]);
 
                 _chai.expect(record).to.be.an('object');
                 _chai.expect(record.hostname).to.equal(_hostname);
@@ -333,7 +333,7 @@ _mocha.describe('logger.task', function () {
             }
 
             {
-                const record = JSON.parse(log.output[1].match(/^(.*?)\n$/u)[1]);
+                const record = JSON.parse(log.output[1].match(/^(.*)\n$/v)[1]);
 
                 _chai.expect(record).to.be.an('object');
                 _chai.expect(record.duration).to.be.a('number');
@@ -371,7 +371,7 @@ _mocha.describe('logger.task', function () {
             _chai.expect(log.output.length).to.equal(2);
 
             {
-                const record = JSON.parse(log.output[0].match(/^(.*?)\n$/u)[1]);
+                const record = JSON.parse(log.output[0].match(/^(.*)\n$/v)[1]);
 
                 _chai.expect(record).to.be.an('object');
                 _chai.expect(record.data).to.equal('data');
@@ -387,7 +387,7 @@ _mocha.describe('logger.task', function () {
             }
 
             {
-                const record = JSON.parse(log.output[1].match(/^(.*?)\n$/u)[1]);
+                const record = JSON.parse(log.output[1].match(/^(.*)\n$/v)[1]);
 
                 _chai.expect(record).to.be.an('object');
                 _chai.expect(record.duration).to.be.a('number');
@@ -425,7 +425,7 @@ _mocha.describe('logger.task', function () {
             _chai.expect(log.output.length).to.equal(2);
 
             {
-                const record = JSON.parse(log.output[0].match(/^(.*?)\n$/u)[1]);
+                const record = JSON.parse(log.output[0].match(/^(.*)\n$/v)[1]);
 
                 _chai.expect(record).to.be.an('object');
                 _chai.expect(record.hostname).to.equal(_hostname);
@@ -440,7 +440,7 @@ _mocha.describe('logger.task', function () {
             }
 
             {
-                const record = JSON.parse(log.output[1].match(/^(.*?)\n$/u)[1]);
+                const record = JSON.parse(log.output[1].match(/^(.*)\n$/v)[1]);
 
                 _chai.expect(record).to.be.an('object');
                 _chai.expect(record.data).to.equal('data');
@@ -477,7 +477,7 @@ _mocha.describe('logger.task', function () {
             _chai.expect(log.output.length).to.equal(2);
 
             {
-                const record = JSON.parse(log.output[0].match(/^(.*?)\n$/u)[1]);
+                const record = JSON.parse(log.output[0].match(/^(.*)\n$/v)[1]);
 
                 _chai.expect(record).to.be.an('object');
                 _chai.expect(record.hostname).to.equal(_hostname);
@@ -492,7 +492,7 @@ _mocha.describe('logger.task', function () {
             }
 
             {
-                const record = JSON.parse(log.output[1].match(/^(.*?)\n$/u)[1]);
+                const record = JSON.parse(log.output[1].match(/^(.*)\n$/v)[1]);
 
                 _chai.expect(record).to.be.an('object');
                 _chai.expect(record.duration).to.be.a('number');
@@ -528,7 +528,7 @@ _mocha.describe('logger.task', function () {
             _chai.expect(log.output.length).to.equal(1);
 
             {
-                const record = JSON.parse(log.output[0].match(/^(.*?)\n$/u)[1]);
+                const record = JSON.parse(log.output[0].match(/^(.*)\n$/v)[1]);
 
                 _chai.expect(record).to.be.an('object');
                 _chai.expect(record.duration).to.be.a('number');
@@ -564,7 +564,7 @@ _mocha.describe('logger.task', function () {
             _chai.expect(log.output.length).to.equal(2);
 
             {
-                const record = JSON.parse(log.output[0].match(/^(.*?)\n$/u)[1]);
+                const record = JSON.parse(log.output[0].match(/^(.*)\n$/v)[1]);
 
                 _chai.expect(record).to.be.an('object');
                 _chai.expect(record.hostname).to.equal(_hostname);
@@ -579,7 +579,7 @@ _mocha.describe('logger.task', function () {
             }
 
             {
-                const record = JSON.parse(log.output[1].match(/^(.*?)\n$/u)[1]);
+                const record = JSON.parse(log.output[1].match(/^(.*)\n$/v)[1]);
 
                 _chai.expect(record).to.be.an('object');
                 _chai.expect(record.duration).to.be.a('number');
@@ -619,7 +619,7 @@ _mocha.describe('logger.task', function () {
             _chai.expect(log.output.length).to.equal(2);
 
             {
-                const record = JSON.parse(log.output[0].match(/^(.*?)\n$/u)[1]);
+                const record = JSON.parse(log.output[0].match(/^(.*)\n$/v)[1]);
 
                 _chai.expect(record).to.be.an('object');
                 _chai.expect(record.hostname).to.equal(_hostname);
@@ -634,7 +634,7 @@ _mocha.describe('logger.task', function () {
             }
 
             {
-                const record = JSON.parse(log.output[1].match(/^(.*?)\n$/u)[1]);
+                const record = JSON.parse(log.output[1].match(/^(.*)\n$/v)[1]);
 
                 _chai.expect(record).to.be.an('object');
                 _chai.expect(record.duration).to.be.a('number');
@@ -671,7 +671,7 @@ _mocha.describe('logger.task', function () {
             _chai.expect(log.output.length).to.equal(2);
 
             {
-                const record = JSON.parse(log.output[0].match(/^(.*?)\n$/u)[1]);
+                const record = JSON.parse(log.output[0].match(/^(.*)\n$/v)[1]);
 
                 _chai.expect(record).to.be.an('object');
                 _chai.expect(record.hostname).to.equal(_hostname);
@@ -686,7 +686,7 @@ _mocha.describe('logger.task', function () {
             }
 
             {
-                const record = JSON.parse(log.output[1].match(/^(.*?)\n$/u)[1]);
+                const record = JSON.parse(log.output[1].match(/^(.*)\n$/v)[1]);
 
                 _chai.expect(record).to.be.an('object');
                 _chai.expect(record.duration).to.be.a('number');
