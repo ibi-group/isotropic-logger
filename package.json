@@ -8,6 +8,7 @@
     },
     "description": "Bunyan logger instance",
     "devDependencies": {
+        "eslint": "~9.8.0",
         "isotropic-dev-dependencies": "~0.3.0",
         "isotropic-error": "~0.13.0",
         "isotropic-later": "~0.13.0",
